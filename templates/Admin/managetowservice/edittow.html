@@ -1,0 +1,53 @@
+{% extends 'adminhimeindex.html' %}
+{% block body %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/edittowpost/#viewreq">
+    {% csrf_token %}
+  <table class="table table-bordered">
+      <input type="hidden" name="id" value="{{ id.id }}">
+
+    <tr>
+      <td>Tow Name</td>
+      <td>
+      <input type="text" name="textfield" value="{{ id.tow_name }}" id="textfield" class="form-control" required /></td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td>
+      <input type="text" name="textfield2" value="{{ id.phone }}" id="textfield2" class="form-control" required pattern="[6789][0-9]{9}" title="Enter valid phone number" /></td>
+    </tr>
+    <tr>
+      <td>E-mail</td>
+      <td>
+      <input type="email" name="textfield3" value="{{ id.email }}" id="textfield3" class="form-control" required /></td>
+    </tr>
+    <tr>
+      <td>District</td>
+      <td>
+      <input type="text" name="textfield4" value="{{ id.district }}" id="textfield4" class="form-control" required /></td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td>
+      <input type="text" name="textfield5" value="{{ id.place }}" id="textfield5" class="form-control" required /></td>
+    </tr>
+    <tr>
+      <td>Post</td>
+      <td>
+      <input type="text" name="textfield6" value="{{ id.post }}" id="textfield6" class="form-control" required /></td>
+    </tr>
+    <tr>
+      <td>Pin</td>
+      <td>
+      <input type="text" name="textfield7" value="{{ id.pin }}" id="textfield7" class="form-control" required pattern="[123456789][0-9]{5}" title="Enter valid pincode" /></td>
+    </tr>
+    <tr>
+
+      <td align="center" colspan="2"><input type="submit" name="button" id="button" value="Update" class="btn btn-success" /></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

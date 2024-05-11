@@ -1,0 +1,59 @@
+{% extends 'adminhimeindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/editservicepost/#viewreq">
+    {% csrf_token %}
+  <table class="table table-bordered">
+      <input type="hidden" name="id" value="{{ id.id }}">
+    <tr>
+      <th>Name</th>
+      <td>
+      <input type="text" name="textfield" value="{{ id.center_name }}" id="textfield" class="form-control" required  /></td>
+    </tr>
+    <tr>
+      <th>Phone</th>
+      <td>
+      <input type="text" name="textfield2" value="{{ id.phone }}" id="textfield2" class="form-control" required pattern="[6789][0-9]{9}" title="Enter valid phone number" /></td>
+    </tr>
+    <tr>
+      <th>E-mail</th>
+      <td>
+      <input type="email" name="textfield3" value="{{ id.email }}" id="textfield3" class="form-control" required /></td>
+    </tr>
+    <tr>
+      <th>Details</th>
+      <td>
+                    <textarea class="form-control"  name="textfield4" required>{{ id.details }}</textarea>
+
+{#      <input type="text" name="textfield4" value="{{ id.details }}" id="textfield4" class="form-control"  />#}
+      </td>
+    </tr>
+    <tr>
+      <th>District</th>
+      <td>
+      <input type="text" name="textfield5" value="{{ id.district }}" id="textfield5" class="form-control" required pattern="[a-z A-Z]+" /></td>
+    </tr>
+    <tr>
+      <th>Place</th>
+      <td>
+      <input type="text" name="textfield6" value="{{ id.place }}" id="textfield6" class="form-control" required pattern="[a-z A-Z]+" /></td>
+    </tr>
+    <tr>
+      <th>Post</th>
+      <td>
+      <input type="text" name="textfield7" value="{{ id.post }}" id="textfield7" class="form-control" required pattern="[a-z A-Z]+" /></td>
+    </tr>
+    <tr>
+      <th>Pin</th>
+      <td>
+      <input type="text" name="textfield8" value="{{ id.pin }}" id="textfield8" class="form-control" required pattern="[123456789][0-9]{5}" title="Enter valid pincode" /></td>
+    </tr>
+    <tr>
+
+      <td align="center" colspan="2"><input type="submit" name="button" id="button" value="Update" class="btn btn-success" /></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

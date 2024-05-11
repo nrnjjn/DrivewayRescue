@@ -1,0 +1,37 @@
+{% extends 'mechhomeindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/viewpumppost/#viewreq">
+    {% csrf_token %}
+  <table class="pull-left" style="width: 400px">
+    <tr>
+      <td>
+      <input type="text" placeholder="Search by pump name" name="textfield" id="textfield" class="form-control" /></td>
+      <td><input type="submit" name="button" id="button" value="Search" class="btn btn-success" /></td>
+    </tr>
+  </table>
+<br>
+  <table class="table table-bordered">
+    <tr>
+      <th>SLNO</th>
+      <th>Pump name</th>
+      <th>Phone</th>
+      <th>E-mail</th>
+      <th>Address</th>
+      
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td width="50px">{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.pump_name }}</td>
+      <td>&nbsp;{{ i.phone }}</td>
+      <td>&nbsp;{{ i.email }}</td>
+      <td>&nbsp;{{ i.district }}, <br>{{ i.place }}, <br>{{ i.post }},<br>{{ i.pin }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+{% endblock %}

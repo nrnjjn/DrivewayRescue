@@ -1,0 +1,57 @@
+{% extends 'adminhimeindex.html' %}
+{% block body %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/addservicepost/">
+    {% csrf_token %}
+  <table class="table table-bordered">
+    <tr>
+      <th>Name</th>
+      <td>
+      <input type="text" name="textfield" id="textfield" class="form-control" required  /></td>
+    </tr>
+    <tr>
+      <th>Phone</th>
+      <td>
+      <input type="text" name="textfield2" id="textfield2" class="form-control" required pattern="[6789][0-9]{9}" title="Enter valid phone number" /></td>
+    </tr>
+    <tr>
+      <th>E-mail</th>
+      <td>
+      <input type="email" name="textfield3" id="textfield3" class="form-control" required /></td>
+    </tr>
+    <tr>
+      <th>Details</th>
+      <td>
+          <textarea class="form-control"  name="textfield4" required></textarea>
+{#      <input type="text" name="textfield4" id="textfield4" class="form-control" /></td>#}
+    </tr>
+    <tr>
+      <th>District</th>
+      <td>
+      <input type="text" name="textfield5" id="textfield5" class="form-control" required pattern="[a-z A-Z]+" /></td>
+    </tr>
+    <tr>
+      <th>Place</th>
+      <td>
+      <input type="text" name="textfield6" id="textfield6" class="form-control"  required pattern="[a-z A-Z]+" /></td>
+    </tr>
+    <tr>
+      <th>Post</th>
+      <td>
+      <input type="text" name="textfield7" id="textfield7" class="form-control" required pattern="[a-z A-Z]+" /></td>
+    </tr>
+    <tr>
+      <th>Pin</th>
+      <td>
+      <input type="text" name="textfield8" id="textfield8" pattern="[123456789][0-9]{5}" title="Enter valid pincode" class="form-control" required /></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><center><input type="submit" name="button" id="button" value="Add" class="btn btn-success" /></center></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,109 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>signup</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+ <meta name="keywords" content="Queer Signup form a Flat Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+<link href="/static/mechsignup/css/style.css" rel='stylesheet' type='text/css' />
+<!--webfonts-->
+<link href="//fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900" rel="stylesheet">
+<!--//webfonts-->
+
+</head>
+<body>
+
+ <h1>Mechanic Signup Form</h1>
+
+ <div class="w3_frm">
+ <!---728x90--->
+  <form action="/myapp/mechsignuppost/" method="post">
+      {% csrf_token %}
+{#			<h3>Signup Form</h3>#}
+			<div class="field-w3-agile-grid leftf">
+				<input type="text" name="textfield" placeholder="Name" required pattern="[a-z A-Z]+" title="Enter valid name"/>
+			</div>
+			<div class="field-w3-agile-grid leftf">
+				<input type="text" name="textfield2" placeholder="Phone" required pattern="[6789][0-9]{9}" title="Enter valid phone number" />
+			</div>
+			<!---728x90--->
+			<div class="field-w3-agile-grid leftf">
+				<input type="text" name="textfield3" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" placeholder="E-mail" required />
+			</div>
+            <div class="field-w3-agile-grid leftf">
+				<input type="text" name="textfield4" placeholder="Specialization" required pattern="[a-z A-Z]+" title="Enter valid specialization" />
+			</div>
+<div class="w3l_gen">
+{#			<h9>Gender</h9>#}
+			<div class="w3_ml">
+			<!---728x90--->
+			<input type="radio" name="RadioGroup1" id="RadioGroup1_0" value="Male" checked>
+				<label for="brand"><span></span>Male</label>
+			</div>
+
+			<div class="w3_fl">
+			<input type="radio" name="RadioGroup1" id="RadioGroup1_1"  value="Female">
+				<label for="brand"><span></span>Female</label>
+			</div>
+                <div class="w3_fl">
+			<input type="radio" name="RadioGroup1" id="RadioGroup1_2" value="Other">
+				<label for="brand"><span></span>Other</label>
+			</div>
+			</div>
+
+			<div class="field-w3-agile-grid leftf">
+				<input type="text" name="textfield5" placeholder="District" required  pattern="[a-z A-Z]+" title="Enter valid district" />
+			</div>
+
+			<div class="field-w3-agile-grid leftf">
+				<input type="text" name="textfield6" placeholder="Place" required pattern="[a-z A-Z]+" title="Enter valid place" />
+			</div>
+
+			<div class="field-w3-agile-grid leftf">
+				<input type="text" name="textfield7" placeholder="Post" required pattern="[a-z A-Z]+" title="Enter valid post" />
+			</div>
+
+      	    <div class="field-w3-agile-grid leftf">
+				<input type="text" name="textfield8" placeholder="Pin" required pattern="[123456789][0-9]{5}" title="Enter valid pincode" />
+			</div>
+
+            <div class="field-w3-agile-grid rightf">
+				<input type="password" name="textfield9" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}$"
+           title="Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one digit, and one special character." placeholder="Password"  />
+			</div>
+
+            <div class="field-w3-agile-grid rightf">
+				<input type="password" name="textfield10" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}$"
+           title="Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one digit, and one special character." placeholder="Confirm password"  />
+			</div>
+
+{#            <div class="field-w3-agile-grid rem">#}
+{#			<input type="checkbox" value="">#}
+{#				<label for="brand"><span></span>I Accept to the Terms and Conditions</label>#}
+{#			</div>#}
+
+			<input type="submit" value="SIGNUP"><br>
+            <div align="right"  class="field-w3-agile-grid rightf" >
+				<a href="/myapp/login/" class="btn btn-danger" style="color: black">Login</a>
+			</div>
+		</form>
+
+
+	</div>
+ 		<!--copyright-->
+	<div class="copy-wthree">
+{#		<p>© 2018 Queer Signup Form . All Rights Reserved | Design by#}
+{#			<a href="http://w3layouts.com/" target="_blank">W3layouts</a>#}
+{#		</p>#}
+	</div>
+	<!--//copyright-->
+
+
+</body>
+</html>

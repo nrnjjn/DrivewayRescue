@@ -1,0 +1,87 @@
+{% extends 'mechhomeindex.html' %}
+{% block body %}
+
+<body>
+<div class="container py-5">
+    <form id="form1" name="form1" method="post" action="/myapp/editprofpost/#viewreq">
+    {% csrf_token %}
+  <table class="table table-bordered">
+      <input type="hidden" name="id" value="{{ data.id }}">
+    <tr>
+      <th>Name</th>
+      <td>
+      <input type="text" name="textfield" value="{{ data.mechanic_name }}" required id="textfield" class="form-control" pattern="[a-z A-Z]+" /></td>
+    </tr>
+    <tr>
+      <th>Phone</th>
+      <td>
+      <input type="text" name="textfield2" value="{{ data.phone }}" required id="textfield2" class="form-control" pattern="[6789][0-9]{9}" title="Enter valid phone number" /></td>
+    </tr>
+    <tr>
+      <th>E-mail</th>
+      <td>
+      <input type="email" name="textfield3" value="{{ data.email }}" required id="textfield3" class="form-control" /></td>
+    </tr>
+    <tr>
+      <th>Specialization</th>
+      <td>
+      <input type="text" name="textfield4" value="{{ data.specialization }}" required id="textfield4" class="form-control" /></td>
+    </tr>
+    <tr>
+      <th>Gender</th>
+      <td>
+        <p>
+          <label>
+            <input type="radio" {% if data.gender == 'Male' %}checked{% endif %} name="RadioGroup1" value="Male" id="RadioGroup1_0" />
+            Male</label>
+          <br />
+          <label>
+            <input type="radio" {% if data.gender == 'Female' %}checked{% endif %} name="RadioGroup1" value="Female" id="RadioGroup1_1" />
+            Female</label>
+          <br />
+          <label>
+            <input type="radio" {% if data.gender == 'Other' %}checked{% endif %} name="RadioGroup1" value="Other" id="RadioGroup1_2" />
+            Other</label>
+          <br />
+      </p></td>
+
+    </tr>
+    <tr>
+      <th>District</th>
+      <td>
+      <input type="text" name="textfield6" value="{{ data.district }}" required id="textfield6" class="form-control" pattern="[a-z A-Z]+" /></td>
+    </tr>
+    <tr>
+      <th>Place</th>
+      <td>
+      <input type="text" name="textfield7" value="{{ data.place }}" required id="textfield7" class="form-control" pattern="[a-z A-Z]+" /></td>
+    </tr>
+    <tr>
+      <th>Post</th>
+      <td>
+      <input type="text" name="textfield8" value="{{ data.post }}" required id="textfield8" class="form-control" pattern="[a-z A-Z]+" /></td>
+    </tr>
+    <tr>
+      <th>Pin</th>
+      <td>
+      <input type="text" name="textfield9" value="{{ data.pin }}" required id="textfield9" class="form-control" pattern="[123456789][0-9]{5}" title="Enter valid pincode" /></td>
+    </tr>
+        <th>Status</th>
+        <td>
+{#            <input type="text" name="textfield10" value="{{ data.availability }}" required id="textfield10" class="form-control" pattern="[a-z A-Z]+" />#}
+<select name="textfield10" class="form-control">
+    <option hidden value="{{ data.id }}">{{ data.availability }}</option>
+    <option value="Available">Available</option>
+    <option value="Unavailable">Unavailable</option>
+</select>
+        </td>
+    <tr>
+
+    <td align="center" colspan="2"><input type="submit" name="button" id="button" value="Update" class="btn btn-success" /></td>
+    </tr>
+  </table>
+</form>
+
+</div>
+</body>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'adminhimeindex.html' %}
+{% block body %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/viewstatuspost/#viewreq">
+    {% csrf_token %}
+  <table class="pull-left" style="width: 400px">
+    <tr>
+      <td>
+      <input type="date" class="form-control" required name="textfield" id="textfield" /></td>
+      <td><input type="submit" name="button" id="button" value="Search" class="btn btn-success" /></td>
+    </tr>
+  </table>
+<br>
+  <table class="table table-bordered">
+    <tr>
+      <th>SLNO</th>
+      <th>Date</th>
+      <th>User</th>
+      <th>Mechanic</th>
+      <th>Status</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td width="50px">&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+      <td>{{ i.USER.user_name }} <br> {{ i.USER.place }} <br> {{ i.USER.phone }}</td>
+      <td>{{ i.MECHANIC.mechanic_name }} <br>
+          {{ i.MECHANIC.place }}<br>
+          {{ i.MECHANIC.phone }}
+
+      </td>
+      <td>&nbsp;{{ i.status }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+{% endblock %}

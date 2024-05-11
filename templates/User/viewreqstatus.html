@@ -1,0 +1,32 @@
+{% extends 'userhomeindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/viewreqpost/#viewreq">
+    {% csrf_token %}
+  <table class="table table-bordered">
+    <tr>
+      <th>SLNO</th>
+      <th>Date</th>
+      <th>Mechanic name</th>
+      <th>Status</th>
+      <th>&nbsp;Chat</th>
+{#      <td>&nbsp;</td>#}
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td width="50px">&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+      <td>&nbsp;{{ i.MECHANIC.mechanic_name }}<br>
+          {{ i.MECHANIC.place }}<br>
+          {{ i.MECHANIC.phone }}
+      </td>
+      <td >&nbsp;{{ i.status }}</td>
+      <td width="50px">{% if i.status == 'approved' %}<a href="/myapp/chat2/{{ i.MECHANIC.LOGIN.id }}" class="btn btn-success" >Chat</a>{% elif i.status == 'pending' %}{% endif %}</td>
+
+    </tr>
+      {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+{% endblock %}

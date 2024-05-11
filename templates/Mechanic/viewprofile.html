@@ -1,0 +1,64 @@
+{% extends 'mechhomeindex.html' %}
+{% block body %}
+
+<body>
+<div class="container">
+      <table class="table table-bordered">
+    <tr>
+      <th>Name</th>
+      <td>{{ data.mechanic_name }}
+      </td>
+    </tr>
+    <tr>
+      <th>Phone</th>
+      <td>{{ data.phone }}
+      </td>
+    </tr>
+    <tr>
+      <th>E-mail</th>
+      <td>{{ data.email }}
+      </td>
+    </tr>
+    <tr>
+      <th>Specialization</th>
+      <td>{{ data.specialization }}
+      </td>
+    </tr>
+    <tr>
+      <th>Gender</th>
+      <td>{{ data.gender }}</td>
+
+    </tr>
+    <tr>
+      <th>District</th>
+      <td>{{ data.district }}
+      </td>
+    </tr>
+    <tr>
+      <th>Place</th>
+      <td>{{ data.place }}
+      </td>
+    </tr>
+    <tr>
+      <th>Post</th>
+      <td>{{ data.post }}
+      </td>
+    </tr>
+    <tr>
+      <th>Pin</th>
+      <td>{{ data.pin }}
+      </td>
+    </tr>
+      <th>Status</th>
+      <td>{{ data.availability }}</td>
+      <tr>
+
+          <td align="center" colspan="2"><a href="/myapp/mechanic_editprofile/#viewreq" class="btn btn-success">Edit</a> </td>
+      </tr>
+  </table>
+
+</div>
+
+</body>
+
+{% endblock %}

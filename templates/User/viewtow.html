@@ -1,0 +1,45 @@
+{% extends 'userhomeindex.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/userviewtowpost/#viewreq">
+    {% csrf_token %}
+  <table class="pull-left" style="width: 400px">
+    <tr>
+      <td>
+      <input type="text" placeholder="Search your place" name="textfield" id="textfield" class="form-control" /></td>
+      <td><input type="submit" name="button" id="button" value="Search" class="btn btn-success" /></td>
+    </tr>
+  </table>
+<br>
+  <table class="table table-bordered">
+    <tr>
+      <th>SLNO</th>
+      <th>Tow name</th>
+      <th>Phone</th>
+      <th>E-mail</th>
+      <th>Address</th>
+      
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td width="50px" >&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.tow_name }}</td>
+      <td>&nbsp;{{ i.phone }}</td>
+      <td>&nbsp;{{ i.email }}</td>
+      <td>&nbsp;{{ i.district }},<br>{{ i.place }},<br>{{ i.post }},<br>{{ i.pin }}</td>
+      
+    </tr>
+      {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+</html>
+{% endblock %}

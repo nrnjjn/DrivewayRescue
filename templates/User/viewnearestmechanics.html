@@ -1,0 +1,69 @@
+{% extends 'userhomeindex.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/viewnearestmechpost/#viewreq">
+{% csrf_token %}
+  <table class="pull-left" style="width: 600px">
+    <tr>
+      <td>
+      <input type="text" placeholder="Search your place" name="textfield" id="textfield" class="form-control" /></td>
+      <td><input type="submit" name="button" id="button" value="Search" class="btn btn-success" /></td>
+    </tr>
+  </table>
+<br>
+  <table class="table table-bordered">
+    <tr>
+      <th>SLNO</th>
+      <th>Name</th>
+        <th>Gender</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>E-mail</th>
+      <th>Specialization</th>
+
+      <th>Status</th>
+        <td></td>
+        <td></td>
+{#        <td> </td>#}
+
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td width="50px">&nbsp;{{ forloop.counter }}</td>
+      <td>{{ i.mechanic_name }}</td>
+         <td>&nbsp;{{ i.gender }}</td>
+      <td>&nbsp;{{ i.district }}, <br>{{ i.place }}, <br>{{ i.post }},<br>{{ i.pin }}</td>
+      <td>&nbsp;{{ i.phone }}</td>
+      <td>&nbsp;{{ i.email }}</td>
+      <td>&nbsp;{{ i.specialization }}</td>
+
+        <td style="color: #801f2f;">{{ i.availability }}
+
+            {% if i.availability == 'Available' %}</td>
+
+      <td><a href="/myapp/userrequest/{{ i.id }}#viewreq" class="btn btn-warning">Request</a></td>
+
+        {% else %}
+        <td style="color: red">        {{ i.availability }}
+</td>
+        {% endif %}
+
+        <td><a href="/myapp/user_view_rating/{{ i.id }}#viewreq" class="btn btn-warning">Rating</a></td>
+
+{#      <td><a href="/myapp/chat/{{ i.id }}">Chat</a></td>#}
+
+    </tr>
+      {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+</html>
+{% endblock %}
